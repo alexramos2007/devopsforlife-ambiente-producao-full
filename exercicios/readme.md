@@ -174,13 +174,14 @@ docker run -d --restart=unless-stopped \
 
 # Passo 3 - Ambiente desenvolvimento
 
+```sh
 Para o ambiente de 3 máquinas. 
 
 
 ssh suporte@10.44.24.155
 ssh suporte@10.44.24.156
 ssh suporte@10.44.24.157
-
+```
 
 
 
