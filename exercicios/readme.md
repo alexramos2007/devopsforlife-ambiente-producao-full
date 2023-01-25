@@ -1,17 +1,4 @@
 
-# Agenda
-1) Ambiente
-2) Rancher HA - Preparação
-3) Rancher HA - Instalação
-4) Ambiente desenvolvimento
-5) Ambiente Homologação
-6) Ambiente de Produção
-7) Pipeline - Desenvolvimento
-8) Pipeline - Homologação
-9) Pipeline - Produção
-10) App Monitoring - Sentry
-
-
 # rancher-ha
 
 Repositorio usado para mostrar instalação do Rancher em HA.
@@ -54,7 +41,7 @@ In an RKE cluster, Rancher server data is stored on etcd. This etcd database run
 The etcd database requires an odd number of nodes so that it can always elect a leader with a majority of the etcd cluster. If the etcd database cannot elect a leader, etcd can suffer from split brain, requiring the cluster to be restored from backup. If one of the three etcd nodes fails, the two remaining nodes can elect a leader because they have the majority of the total number of etcd nodes.
 
 
-# Aula 1 - Rancher HA - Preparação
+# Passo 1 - Rancher HA - Preparação
 
 ## INCIO
 
@@ -181,7 +168,7 @@ docker run -d --restart=unless-stopped \
 
 
 
-# Aula 4 - Ambiente desenvolvimento
+# Passo 4 - Ambiente desenvolvimento
 
 Para o ambiente de 3 máquinas. 
 
@@ -206,7 +193,7 @@ docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernete
 ```
 
 
-# Aula 5 - Ambiente Homologação
+# Passo 5 - Ambiente Homologação
 
 
 Para o ambiente de 3 máquinas. 
@@ -230,7 +217,7 @@ usermod -aG docker suporte
 
 
 
-# Aula 6 - Ambiente Produção
+# Passo 6 - Ambiente Produção
 
 
 ## Kubernetes-HA - Alta Disponibilidade
