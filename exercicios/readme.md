@@ -57,7 +57,7 @@ ssh -i chave.pem suporte@10.44.24.153   10.44.24.153   # - rancher-server-2
 ssh -i chave.pem suporte@10.44.24.154   10.44.24.154   # - rancher-server-3
 ```
 
-### Copiar chave PEM para máquina NGINX para ela logar nas outras.
+### Copiar chave idrsa.pub da máquina NGINX para ela logar nas outras.
 
 Para servidores com senha, olhar arquivo ssh-no-cloud.md
 
@@ -66,6 +66,10 @@ Para servidores com senha, olhar arquivo ssh-no-cloud.md
 # Copiar o PEM e colar no ARQUIVO.
 vi ~/.ssh/id_rsa
 chmod 600 /home/ubuntu/.ssh/id_rsa
+
+ssh-copy-id -i /home/suporte/.ssh/id_rsa.pub suporte@10.44.24.152
+ssh-copy-id -i /home/suporte/.ssh/id_rsa.pub suporte@10.44.24.153
+ssh-copy-id -i /home/suporte/.ssh/id_rsa.pub suporte@10.44.24.154
 
 ssh suporte@10.44.24.152
 ssh suporte@10.44.24.153
@@ -118,7 +122,7 @@ sudo mv linux-amd64/helm /usr/local/bin/helm
 ```
 
 
-# Passo 3 - Rancher HA - Instalação rancher
+# Passo 2 - Rancher HA - Instalação rancher
 
 https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/high-availability-installs
 
@@ -168,7 +172,7 @@ docker run -d --restart=unless-stopped \
 
 
 
-# Passo 4 - Ambiente desenvolvimento
+# Passo 3 - Ambiente desenvolvimento
 
 Para o ambiente de 3 máquinas. 
 
@@ -193,7 +197,7 @@ docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernete
 ```
 
 
-# Passo 5 - Ambiente Homologação
+# Passo 4 - Ambiente Homologação
 
 
 Para o ambiente de 3 máquinas. 
@@ -217,7 +221,7 @@ usermod -aG docker suporte
 
 
 
-# Passo 6 - Ambiente Produção
+# Passo 5 - Ambiente Produção
 
 
 ## Kubernetes-HA - Alta Disponibilidade
