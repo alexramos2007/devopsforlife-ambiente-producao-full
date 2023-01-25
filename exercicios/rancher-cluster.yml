@@ -1,12 +1,12 @@
 nodes:
-  - address: 172.31.43.193
-    user: ubuntu
+  - address: 10.44.24.152
+    user: suporte
     role: [controlplane, worker, etcd]
-  - address: 172.31.38.52
-    user: ubuntu
+  - address: 10.44.24.153
+    user: suporte
     role: [controlplane, worker, etcd]
-  - address: 172.31.44.134
-    user: ubuntu
+  - address: 10.44.24.154
+    user: suporte
     role: [controlplane, worker, etcd]
 
 
