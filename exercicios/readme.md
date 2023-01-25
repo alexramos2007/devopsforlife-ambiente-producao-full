@@ -63,11 +63,11 @@ Instalar o kubectl nela também
 Instalar o RKE nela também.
 
 ```sh
-ssh -i devopsdevops.pem ubuntu@18.222.240.164                  # - NGINX - LB
+ssh -i chave.pem suporte@10.44.24.151                  # - NGINX - LB
 
-ssh -i devopsdevops.pem ubuntu@18.222.192.108   172.31.43.193   # - rancher-server-1
-ssh -i devopsdevops.pem ubuntu@18.118.49.64     172.31.38.52   # - rancher-server-2
-ssh -i devopsdevops.pem ubuntu@3.144.77.173     172.31.44.134    # - rancher-server-3
+ssh -i chave.pem suporte@10.44.24.152   10.44.24.152   # - rancher-server-1
+ssh -i chave.pem suporte@10.44.24.153   10.44.24.153   # - rancher-server-2
+ssh -i chave.pem suporte@10.44.24.154   10.44.24.154   # - rancher-server-3
 ```
 
 ### Copiar chave PEM para máquina NGINX para ela logar nas outras.
@@ -80,9 +80,9 @@ Para servidores com senha, olhar arquivo ssh-no-cloud.md
 vi ~/.ssh/id_rsa
 chmod 600 /home/ubuntu/.ssh/id_rsa
 
-ssh ubuntu@172.31.33.192
-ssh ubuntu@172.31.32.92
-ssh ubuntu@172.31.45.230
+ssh suporte@10.44.24.152
+ssh suporte@10.44.24.153
+ssh suporte@10.44.24.154
 ```
 
 
@@ -131,7 +131,7 @@ sudo mv linux-amd64/helm /usr/local/bin/helm
 ```
 
 
-# Aula 3 - Rancher HA - Instalação rancher
+# Passo 3 - Rancher HA - Instalação rancher
 
 https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/high-availability-installs
 
@@ -157,12 +157,12 @@ kubectl create namespace cattle-system
 # Instalar Rancher
 helm install rancher rancher-stable/rancher \
  --namespace cattle-system \
- --set hostname=rancher.devopsforlife.io
+ --set hostname=rancher.cenpe.ufc.br
  
 
 helm upgrade rancher rancher-stable/rancher \
   --namespace cattle-system \
-  --set hostname=rancher.devopsforlife.io 
+  --set hostname=rancher.cenpe.ufc.br
 
 
 # Verificar deployment
@@ -186,9 +186,9 @@ docker run -d --restart=unless-stopped \
 Para o ambiente de 3 máquinas. 
 
 
-ssh -i devopsdevops.pem ubuntu@52.14.3.1
-ssh -i devopsdevops.pem ubuntu@3.16.214.77
-ssh -i devopsdevops.pem ubuntu@18.218.119.45
+ssh suporte@10.44.24.155
+ssh suporte@10.44.24.156
+ssh suporte@10.44.24.157
 
 
 
@@ -198,11 +198,11 @@ ssh -i devopsdevops.pem ubuntu@18.218.119.45
 ```sh
 #!/bin/bash
 curl https://releases.rancher.com/install-docker/20.10.sh | sh
-usermod -aG docker ubuntu
+usermod -aG docker suporte
 ```
 
 ```sh
-docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.7.0 --server https://rancher.devopsforlife.io --token 8zhzb6t226trxx8vfq6t5p66zsrr77rcbstqkx8qf2fnsbhc5v8v8v --ca-checksum e75eb8d5e03fee1469175ed28c0bceb399fab9a98a0e7b778e4071bbf46ed98b --etcd --controlplane --worker
+docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.7.0 --server https://rancher.cenpe.ufc.br --token 8zhzb6t226trxx8vfq6t5p66zsrr77rcbstqkx8qf2fnsbhc5v8v8v --ca-checksum e75eb8d5e03fee1469175ed28c0bceb399fab9a98a0e7b778e4071bbf46ed98b --etcd --controlplane --worker
 ```
 
 
@@ -222,7 +222,7 @@ ssh -i devopsdevops.pem ubuntu@3.16.165.101
 ```sh
 #!/bin/bash
 curl https://releases.rancher.com/install-docker/20.10.sh | sh
-usermod -aG docker ubuntu
+usermod -aG docker suporte
 ```
 
 
@@ -260,7 +260,7 @@ Usando na demonstração: UBUNTU 22.04 LTS
 ```sh
 #!/bin/bash
 curl https://releases.rancher.com/install-docker/20.10.sh | sh
-usermod -aG docker ubuntu
+usermod -aG docker suporte
 ```
 
 
