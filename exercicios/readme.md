@@ -91,7 +91,7 @@ kubectl version --client
 curl -LO https://github.com/rancher/rke/releases/download/v1.4.1/rke_linux-amd64
 mv rke_linux-amd64 rke
 chmod +x rke
-sudo mv ./rke /usr/local/bin/rke
+sudo mv rke /usr/local/bin/rke
 rke --version
 ```
 
@@ -103,7 +103,7 @@ https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes
 
 
 ```sh
-rke up --config ./rancher-cluster.yml
+rke up --config rancher-cluster.yml
 
 # Após o cluster subir:...
 export KUBECONFIG=$(pwd)/kube_config_rancher-cluster.yml
